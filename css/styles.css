@@ -6,8 +6,7 @@
 :root {
   --lilac-bg:   #faf5ff;  /* основной фон */
   --lavender:   #d9d0ff;  /* лавандовые блоки */
-  --green:      #adc189;  /* зелёные блоки */
-  --green-cta:  #5f7a3f;  /* кнопки: тёмно-зелёный, белый текст читается (AA) */
+  --green:      #adc189;  /* зелёные блоки и кнопки */
   --cream:      #fffbf2;  /* карточки */
   --cream-line: #ead8d1;  /* обводка карточек */
 
@@ -458,7 +457,8 @@ button:focus-visible {
   color: var(--brown);
   text-decoration: underline;
   text-underline-offset: 3px;
-  padding: 2px 0;
+  display: inline-block;
+  padding: 5px 0;
 }
 .footer__bottom {
   margin-top: 28px;
@@ -705,9 +705,16 @@ button:focus-visible {
     transform: rotate(8deg);
     opacity: 0.95;
   }
-  .topbar { padding: 11px 18px; }
+  .topbar { padding: 9px 18px; }
   .topbar__brand { font-size: 13px; letter-spacing: 0.08em; white-space: nowrap; }
-  .topbar .btn { padding: 9px 15px; font-size: 13px; white-space: nowrap; }
+  .topbar .btn {
+    min-height: 44px;
+    padding: 0 17px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    white-space: nowrap;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

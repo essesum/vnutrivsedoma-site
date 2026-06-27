@@ -155,31 +155,34 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
   document.body.appendChild(overlay);
 
   var lbImg = overlay.querySelector(".lightbox__img");
+  var closeBtn = overlay.querySelector(".lightbox__close");
+  var lastTrigger = null;
 
-  function open(src, alt) {
-    lbImg.src = src;
-    lbImg.alt = alt || "";
+  function open(trigger) {
+    lastTrigger = trigger;
+    lbImg.src = trigger.currentSrc || trigger.src;
+    lbImg.alt = trigger.alt || "";
     overlay.classList.add("is-open");
     overlay.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    closeBtn.focus();
   }
   function close() {
     overlay.classList.remove("is-open");
     overlay.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
   }
 
   imgs.forEach(function (img) {
     img.setAttribute("role", "button");
     img.setAttribute("tabindex", "0");
     img.setAttribute("aria-label", "Открыть отзыв крупным планом");
-    img.addEventListener("click", function () {
-      open(img.currentSrc || img.src, img.alt);
-    });
+    img.addEventListener("click", function () { open(img); });
     img.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        open(img.currentSrc || img.src, img.alt);
+        open(img);
       }
     });
   });

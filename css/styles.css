@@ -480,7 +480,7 @@ button:focus-visible {
   /* HERO mobile: высота по экрану, заголовок сверху, текст снизу */
   .hero { min-height: 100svh; }
   /* фон всегда покрывает экран (никакой серой подложки снизу) */
-  .hero__bg { background-position: 42% 10%; background-size: cover; }
+  .hero__bg { background-position: 42% 22%; background-size: cover; }
   /* заголовок приватности компактнее, чтобы фраза влезала */
   .h2--privacy { font-size: 25px; }
   .hero__inner {

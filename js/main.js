@@ -94,17 +94,6 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
   var reduce = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Плавающая шапка: показываем после первого экрана ---- */
-  var topbar = document.getElementById("topbar");
-  var hero = document.getElementById("top");
-  if (topbar && hero && "IntersectionObserver" in window) {
-    var hObs = new IntersectionObserver(function (entries) {
-      // когда герой ушёл из вида — показываем шапку
-      topbar.classList.toggle("is-shown", !entries[0].isIntersecting);
-    }, { rootMargin: "-80px 0px 0px 0px" });
-    hObs.observe(hero);
-  }
-
   /* ---- Появление блоков при прокрутке ---- */
   var targets = document.querySelectorAll(
     ".section .eyebrow, .section .h2, .section .lead, .section .card, " +

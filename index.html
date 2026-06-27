@@ -20,26 +20,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
 </head>
 <body>
 
   <a class="skip-link sr-only" href="#registration">Перейти к регистрации</a>
-
-  <!-- ============ Плавающая шапка ============ -->
-  <nav class="topbar" id="topbar" aria-label="Шапка сайта">
-    <a class="topbar__brand" href="#top">Внутри<span>вседома</span></a>
-    <a class="btn btn--green" href="#registration">Зарегистрироваться</a>
-  </nav>
 
   <!-- ============ HERO / 01 Первый экран ============ -->
   <header class="hero" id="top">
     <div class="hero__collage" aria-hidden="true">
       <div class="hero__bg"></div>
       <div class="hero__tint"></div>
-      <span class="hero__blob"></span>
-      <img class="hero__portrait2" src="assets/img/hero-portrait2.jpg" alt="" width="1000" height="853" />
-      <img class="hero__eye" src="assets/img/hero-eye.png" alt="" width="488" height="281" />
+      <div class="hero__stage">
+        <span class="hero__blob"></span>
+        <img class="hero__portrait2" src="assets/img/hero-portrait2.jpg" alt="" width="1000" height="853" />
+        <img class="hero__eye" src="assets/img/hero-eye.png" alt="" width="488" height="281" />
+      </div>
     </div>
 
     <div class="hero__inner container">
@@ -55,6 +51,12 @@
       </div>
     </div>
   </header>
+
+  <!-- ============ Шапка (sticky, появляется после героя) ============ -->
+  <nav class="topbar" id="topbar" aria-label="Шапка сайта">
+    <a class="topbar__brand" href="#top">Внутри<span>вседома</span></a>
+    <a class="btn btn--green" href="#registration">Зарегистрироваться</a>
+  </nav>
 
   <main>
 
@@ -288,6 +290,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>

@@ -24,8 +24,16 @@
 </head>
 <body>
 
+  <a class="skip-link sr-only" href="#registration">Перейти к регистрации</a>
+
+  <!-- ============ Плавающая шапка ============ -->
+  <nav class="topbar" id="topbar" aria-label="Шапка сайта">
+    <a class="topbar__brand" href="#top">Внутри<span>вседома</span></a>
+    <a class="btn btn--green" href="#registration">Зарегистрироваться</a>
+  </nav>
+
   <!-- ============ HERO / 01 Первый экран ============ -->
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="hero__collage" aria-hidden="true">
       <div class="hero__bg"></div>
       <div class="hero__tint"></div>
@@ -67,9 +75,13 @@
 
     <!-- ============ 03 Почему группа эффективна ============ -->
     <section class="section section--lilac">
+      <img class="deco deco--arm" src="assets/img/arm.png" alt="" width="775" height="287" aria-hidden="true" />
       <div class="container">
-        <p class="eyebrow">Почему группа эффективна</p>
-        <h2 class="h2">Группа не собирается случайно</h2>
+        <div class="eyebrow-row">
+          <p class="eyebrow" style="margin-bottom:0">Почему группа эффективна</p>
+          <img class="spin" src="assets/img/yinyang.png" alt="" width="270" height="270" aria-hidden="true" />
+        </div>
+        <h2 class="h2" style="margin-top:22px">Группа не собирается случайно</h2>
         <p class="lead lead--wide">Общее поле группы работает на вас: темы вопросов участников часто перекликаются, дополняют и раскрывают друг друга.</p>
 
         <div class="cards cards--3">
@@ -93,6 +105,7 @@
 
     <!-- ============ 05 Как проходит встреча ============ -->
     <section class="section section--lavender">
+      <img class="deco deco--bird" src="assets/img/bird.png" alt="" width="302" height="273" aria-hidden="true" />
       <div class="container">
         <p class="eyebrow">Как проходит встреча</p>
         <h2 class="h2">Простой и бережный процесс встречи в Zoom</h2>
@@ -124,6 +137,7 @@
 
     <!-- ============ 06 Приватность ============ -->
     <section class="section section--lilac">
+      <img class="deco deco--lips" src="assets/img/lips.png" alt="" width="215" height="181" aria-hidden="true" />
       <div class="container">
         <p class="eyebrow">Приватность</p>
         <h2 class="h2">Без записи встречи и публичного распространения</h2>
@@ -167,6 +181,7 @@
 
     <!-- ============ 08 Подготовка ============ -->
     <section class="section section--lavender">
+      <img class="spin yin-floating" src="assets/img/yinyang.png" alt="" width="270" height="270" aria-hidden="true" />
       <div class="container">
         <p class="eyebrow">Подготовка</p>
         <h2 class="h2">Как получить от встречи максимальную пользу</h2>
@@ -183,9 +198,14 @@
     <!-- ============ 09 О Марии ============ -->
     <section class="section section--lilac">
       <div class="container">
-        <p class="eyebrow">Мария Шишкина</p>
-        <h2 class="h2">Опыт, на который можно опереться</h2>
-        <p class="lead lead--wide">Я психолог и специалист по работе с подсознанием, гипнотерапевт, регрессолог, энерготерапевт и практик НЛП. Провожу личные терапевтические сессии, курсы, ретриты, практики и ченнелинг-сессии.</p>
+        <div class="about-grid">
+          <div>
+            <p class="eyebrow">Мария Шишкина</p>
+            <h2 class="h2">Опыт, на который можно опереться</h2>
+            <p class="lead lead--wide">Я психолог и специалист по работе с подсознанием, гипнотерапевт, регрессолог, энерготерапевт и практик НЛП. Провожу личные терапевтические сессии, курсы, ретриты, практики и ченнелинг-сессии.</p>
+          </div>
+          <img class="about__portrait" src="assets/img/maria-cutout.png" alt="Мария Шишкина" width="289" height="281" loading="lazy" />
+        </div>
 
         <div class="cards cards--4">
           <article class="card stat">

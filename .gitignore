@@ -7,3 +7,6 @@ Thumbs.db
 
 # gstack local browser state (tokens, logs)
 .gstack/
+
+# Распакованный архив исходников
+.incoming/

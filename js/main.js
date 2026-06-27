@@ -68,5 +68,59 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
     }
   });
 
-  // Год в подвале (если понадобится) и аккуратные внешние ссылки уже в разметке.
+})();
+
+/* ============================================================
+   Оживление: плавающая шапка + появление блоков при прокрутке
+   ============================================================ */
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  root.classList.add("js");
+
+  var reduce = window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Плавающая шапка: показываем после первого экрана ---- */
+  var topbar = document.getElementById("topbar");
+  var hero = document.getElementById("top");
+  if (topbar && hero && "IntersectionObserver" in window) {
+    var hObs = new IntersectionObserver(function (entries) {
+      // когда герой ушёл из вида — показываем шапку
+      topbar.classList.toggle("is-shown", !entries[0].isIntersecting);
+    }, { rootMargin: "-80px 0px 0px 0px" });
+    hObs.observe(hero);
+  }
+
+  /* ---- Появление блоков при прокрутке ---- */
+  var targets = document.querySelectorAll(
+    ".section .eyebrow, .section .h2, .section .lead, .section .card, " +
+    ".callout, .steps-list li, .reviews__grid img, .reg__card, .about__portrait"
+  );
+
+  if (reduce || !("IntersectionObserver" in window)) {
+    return; // без анимации — контент и так виден (класс .reveal не добавляем)
+  }
+
+  targets.forEach(function (el) {
+    el.classList.add("reveal");
+    // лёгкий стаггер среди соседей одного типа
+    var sibs = el.parentElement ? el.parentElement.children : [];
+    var idx = Array.prototype.indexOf.call(sibs, el);
+    var delay = ((idx % 4) + 1);
+    if (el.classList.contains("card") || el.tagName === "IMG" || el.tagName === "LI") {
+      el.setAttribute("data-delay", String(delay));
+    }
+  });
+
+  var rObs = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-visible");
+        obs.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
+
+  targets.forEach(function (el) { rObs.observe(el); });
 })();

@@ -185,12 +185,13 @@ button:focus-visible {
 }
 .hero__blob {
   position: absolute;
+  z-index: 0;
   left: 6%; top: 10%;
   width: clamp(54px, 7vw, 86px);
   height: clamp(38px, 5vw, 60px);
   background: var(--lavender);
   border-radius: 50%;
-  opacity: 0.92;
+  opacity: 0.38;
 }
 
 .hero__inner {
@@ -220,6 +221,7 @@ button:focus-visible {
   line-height: 1.06;
   color: var(--white);
   letter-spacing: -0.01em;
+  text-shadow: 0 2px 18px rgba(20, 20, 18, 0.45);
 }
 
 .hero__text { max-width: 600px; }
@@ -750,3 +752,11 @@ button:focus-visible {
 /* Меньше расстояние между «Суть формата» и «Почему группа эффективна» */
 .sense { padding-bottom: clamp(24px, 3vw, 48px); }
 .sense + .section { padding-top: clamp(24px, 3vw, 48px); }
+
+/* Очень узкие экраны (узкие Android / раскладушки) */
+@media (max-width: 374px) {
+  .h2--privacy { font-size: 22px; }
+}
+@media (max-width: 340px) {
+  .nowrap { white-space: normal; }
+}

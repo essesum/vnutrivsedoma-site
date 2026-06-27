@@ -50,12 +50,18 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
 
     if (REGISTRATION_URL) {
       // Передаём данные в GetCourse через query-параметры
-      var url = new URL(REGISTRATION_URL);
-      url.searchParams.set("name", name);
-      url.searchParams.set("email", email);
-      url.searchParams.set("phone", phone);
+      var target = REGISTRATION_URL;
+      try {
+        var url = new URL(REGISTRATION_URL);
+        url.searchParams.set("name", name);
+        url.searchParams.set("email", email);
+        url.searchParams.set("phone", phone);
+        target = url.toString();
+      } catch (e) {
+        /* если ссылка задана без протокола — открываем как есть */
+      }
       hint.textContent = "Переходим к регистрации…";
-      window.open(url.toString(), "_blank", "noopener");
+      window.open(target, "_blank", "noopener");
     } else {
       hint.textContent = "Спасибо! Заявка отправлена — мы свяжемся с вами.";
       form.reset();

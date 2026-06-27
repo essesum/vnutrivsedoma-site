@@ -5,11 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ченнелинг-группа с Марией Шишкиной — онлайн-встреча в малой группе</title>
   <meta name="description" content="Камерная Zoom-встреча на 10 человек, где каждый задаёт один личный вопрос и получает ответ через высшее Я с пояснением в формате консультации. 2–2,5 часа глубокой работы с Марией Шишкиной." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#adc189" />
+  <link rel="canonical" href="https://essesum.github.io/vnutrivsedoma-site/" />
   <meta property="og:title" content="Ченнелинг-группа с Марией Шишкиной" />
   <meta property="og:description" content="Камерная Zoom-встреча на 10 человек. Один вопрос — десять ответов." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://essesum.github.io/vnutrivsedoma-site/" />
+  <meta property="og:image" content="https://essesum.github.io/vnutrivsedoma-site/assets/img/hero-bg.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Favicon: встроенная SVG-«капля» в фирменном сиреневом, без лишнего запроса -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23faf5ff'/%3E%3Cellipse cx='16' cy='15' rx='9' ry='6.5' fill='%23d9d0ff'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="assets/img/hero-bg.jpg" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -21,8 +30,8 @@
       <div class="hero__bg"></div>
       <div class="hero__tint"></div>
       <span class="hero__blob"></span>
-      <img class="hero__portrait2" src="assets/img/hero-portrait2.png" alt="" />
-      <img class="hero__eye" src="assets/img/hero-eye.png" alt="" />
+      <img class="hero__portrait2" src="assets/img/hero-portrait2.jpg" alt="" width="1000" height="853" />
+      <img class="hero__eye" src="assets/img/hero-eye.png" alt="" width="488" height="281" />
     </div>
 
     <div class="hero__inner container">
@@ -47,7 +56,7 @@
         <div class="sense__left">
           <p class="eyebrow">Суть формата</p>
           <h2 class="h2">Один вопрос может раскрыть больше, чем кажется</h2>
-          <img class="sense__hand" src="assets/img/hand.png" alt="" aria-hidden="true" />
+          <img class="sense__hand" src="assets/img/hand.png" alt="" width="760" height="539" aria-hidden="true" />
         </div>
         <div class="sense__right">
           <p class="lead">В личной консультации или ченнелинг-сессии можно разобрать большое количество вопросов. Но чаще всего они крутятся вокруг одной важной темы: внутреннего механизма, который требует изменений: убеждения, страхи, выбора или точка роста.</p>
@@ -218,9 +227,12 @@
           <h3 class="reg__card-title">Забронировать место</h3>
           <p class="reg__card-sub">Заявка на участие в ченнелинг-группе. После отправки заявки мы свяжемся с вами.</p>
           <form class="reg-form" id="reg-form" novalidate>
-            <input class="reg-form__input" type="text" name="name" placeholder="Ваше имя" autocomplete="name" required />
-            <input class="reg-form__input" type="email" name="email" placeholder="Эл. адрес" autocomplete="email" required />
-            <input class="reg-form__input" type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
+            <label class="sr-only" for="reg-name">Ваше имя</label>
+            <input class="reg-form__input" id="reg-name" type="text" name="name" placeholder="Ваше имя" autocomplete="name" required />
+            <label class="sr-only" for="reg-email">Эл. адрес</label>
+            <input class="reg-form__input" id="reg-email" type="email" name="email" placeholder="Эл. адрес" autocomplete="email" required />
+            <label class="sr-only" for="reg-phone">Телефон</label>
+            <input class="reg-form__input" id="reg-phone" type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required />
             <button class="btn btn--white reg-form__submit" type="submit">Отправить заявку</button>
             <p class="reg-form__hint" id="reg-form-hint" role="status"></p>
           </form>
@@ -234,10 +246,10 @@
         <p class="eyebrow">Отзывы</p>
         <h2 class="h2">Что говорят участники</h2>
         <div class="reviews__grid">
-          <img src="assets/img/review1.png" alt="Отзыв участницы ченнелинг-группы" loading="lazy" />
-          <img src="assets/img/review2.png" alt="Отзыв участницы ченнелинг-группы" loading="lazy" />
-          <img src="assets/img/review3.png" alt="Отзыв участницы ченнелинг-группы" loading="lazy" />
-          <img src="assets/img/review4.png" alt="Отзыв участницы ченнелинг-группы" loading="lazy" />
+          <img src="assets/img/review1.png" alt="Отзыв участницы ченнелинг-группы" width="436" height="544" loading="lazy" />
+          <img src="assets/img/review2.png" alt="Отзыв участницы ченнелинг-группы" width="448" height="560" loading="lazy" />
+          <img src="assets/img/review3.png" alt="Отзыв участницы ченнелинг-группы" width="448" height="560" loading="lazy" />
+          <img src="assets/img/review4.png" alt="Отзыв участницы ченнелинг-группы" width="448" height="560" loading="lazy" />
         </div>
       </div>
     </section>

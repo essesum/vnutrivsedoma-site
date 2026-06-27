@@ -48,7 +48,7 @@ body::after {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -249,8 +249,8 @@ button:focus-visible {
   cursor: pointer;
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.btn--green { background: var(--green-cta); color: var(--white); }
-.btn--green:hover { background: #527036; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(60,90,40,0.4); }
+.btn--green { background: var(--green); color: var(--ink); }
+.btn--green:hover { background: #9cb578; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(120,140,90,0.4); }
 .btn--white { background: var(--white); color: var(--ink); }
 .btn--white:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,0.18); }
 
@@ -480,7 +480,7 @@ button:focus-visible {
   /* HERO mobile: высота по экрану, заголовок сверху, текст снизу */
   .hero { min-height: 100svh; }
   /* фон всегда покрывает экран (никакой серой подложки снизу) */
-  .hero__bg { background-position: 22% 10%; background-size: cover; }
+  .hero__bg { background-position: 42% 10%; background-size: cover; }
   /* заголовок приватности компактнее, чтобы фраза влезала */
   .h2--privacy { font-size: 25px; }
   .hero__inner {
@@ -490,17 +490,17 @@ button:focus-visible {
     gap: 40px;
   }
   .hero__title-wrap { text-align: left; }
-  /* нижнее фото поднимаем выше, чтобы кнопка не резала лицо */
+  /* нижнее фото — ниже, заходит под текст */
   .hero__portrait2 {
-    width: 64%;
-    top: 31%;
+    width: 60%;
+    top: 44%;
     bottom: auto;
     right: -6%;
-    opacity: 0.92;
+    opacity: 0.9;
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24%);
             mask-image: linear-gradient(90deg, transparent 0, #000 24%);
   }
-  .hero__eye { left: auto; right: 5%; top: 19%; width: 116px; }
+  .hero__eye { left: auto; right: 5%; top: 21%; width: 116px; }
   .hero__tint {
     background: linear-gradient(180deg, rgba(20,20,18,0.5) 0%, rgba(20,20,18,0.32) 36%, rgba(20,20,18,0.7) 64%, rgba(20,20,18,0.9) 100%);
   }
@@ -595,8 +595,8 @@ button:focus-visible {
   z-index: -1;
   inset: -40%;
   background: url("../assets/img/gradient.jpg") center / cover;
-  opacity: 0.5;
-  filter: blur(36px) saturate(1.1);
+  opacity: 0.36;
+  filter: blur(38px) saturate(1.05);
   mix-blend-mode: multiply;
   animation: drift 18s ease-in-out infinite alternate;
 }

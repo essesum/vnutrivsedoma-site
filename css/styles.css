@@ -479,8 +479,10 @@ button:focus-visible {
 
   /* HERO mobile: высота по экрану, заголовок сверху, текст снизу */
   .hero { min-height: 100svh; }
-  /* левую героиню — крупнее и по лицу/носу */
-  .hero__bg { background-position: 24% 16%; background-size: 168%; }
+  /* левую героиню — левее, крупнее, по лицо */
+  .hero__bg { background-position: 14% 24%; background-size: 200%; }
+  /* заголовок приватности компактнее, чтобы фраза влезала */
+  .h2--privacy { font-size: 25px; }
   .hero__inner {
     padding-top: 28px;
     padding-bottom: 40px;
@@ -663,10 +665,23 @@ button:focus-visible {
 @media (max-width: 900px) {
   .deco--arm { display: none; }
   .about-grid { grid-template-columns: 1fr; }
-  .about__portrait { display: none; }
+  /* фото Маши показываем и на мобиле — после текста, перед цифрами */
+  .about__portrait {
+    width: clamp(200px, 60vw, 280px);
+    margin: 18px 0 4px;
+    align-self: start;
+  }
 }
 @media (max-width: 640px) {
   .deco, .yin-floating { display: none; }
+  /* колибри в «Как проходит встреча» — снизу справа секции */
+  .deco--bird {
+    display: block;
+    top: auto; bottom: 14px; right: 14px; left: auto;
+    width: 78px;
+    transform: rotate(8deg);
+    opacity: 0.92;
+  }
   .topbar { padding: 11px 18px; }
   .topbar__brand { font-size: 13px; letter-spacing: 0.08em; white-space: nowrap; }
   .topbar .btn { padding: 9px 15px; font-size: 13px; white-space: nowrap; }
@@ -732,3 +747,12 @@ button:focus-visible {
     animation: float 7s ease-in-out infinite;
   }
 }
+
+/* ============================================================
+   Правки v1.1
+   ============================================================ */
+.nowrap { white-space: nowrap; }
+
+/* Меньше расстояние между «Суть формата» и «Почему группа эффективна» */
+.sense { padding-bottom: clamp(24px, 3vw, 48px); }
+.sense + .section { padding-top: clamp(24px, 3vw, 48px); }

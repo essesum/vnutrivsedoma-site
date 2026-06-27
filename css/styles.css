@@ -557,7 +557,16 @@ button:focus-visible {
   opacity: 0.9;
   will-change: transform;
 }
-.deco--bird { top: 6%; right: 3%; width: clamp(90px, 11vw, 150px); transform: rotate(8deg); }
+.deco--bird {
+  top: 6%; right: 3%;
+  width: clamp(90px, 11vw, 150px);
+  filter: grayscale(1) brightness(1.08) drop-shadow(0 0 9px rgba(255,255,255,0.5));
+  animation: birdFloat 7s ease-in-out infinite;
+}
+@keyframes birdFloat {
+  0%, 100% { transform: translateY(0) rotate(8deg); }
+  50%      { transform: translateY(-12px) rotate(4deg); }
+}
 .deco--lips { bottom: 8%; left: 2%; width: clamp(80px, 9vw, 120px); transform: rotate(-6deg); }
 .deco--arm  { bottom: -4%; right: -2%; width: clamp(180px, 24vw, 340px); opacity: 0.85; }
 
@@ -688,7 +697,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .spin, .callout::before, .hero__eye { animation: none !important; }
+  .spin, .callout::before, .hero__eye, .deco--bird { animation: none !important; }
   .js .reveal { opacity: 1 !important; transform: none !important; }
   .js .hero__eyebrow, .js .hero__title, .js .hero__lead, .js .hero .btn, .js .hero__note {
     opacity: 1 !important; animation: none !important;

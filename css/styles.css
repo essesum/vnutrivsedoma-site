@@ -479,8 +479,8 @@ button:focus-visible {
 
   /* HERO mobile: высота по экрану, заголовок сверху, текст снизу */
   .hero { min-height: 100svh; }
-  /* левую героиню — левее, крупнее, по лицо */
-  .hero__bg { background-position: 14% 24%; background-size: 200%; }
+  /* фон всегда покрывает экран (никакой серой подложки снизу) */
+  .hero__bg { background-position: 22% 10%; background-size: cover; }
   /* заголовок приватности компактнее, чтобы фраза влезала */
   .h2--privacy { font-size: 25px; }
   .hero__inner {
@@ -674,13 +674,13 @@ button:focus-visible {
 }
 @media (max-width: 640px) {
   .deco, .yin-floating { display: none; }
-  /* колибри в «Как проходит встреча» — снизу справа секции */
+  /* колибри в «Как проходит встреча» — сверху, рядом с заголовком */
   .deco--bird {
     display: block;
-    top: auto; bottom: 14px; right: 14px; left: auto;
-    width: 78px;
+    top: 58px; right: 16px; bottom: auto; left: auto;
+    width: 74px;
     transform: rotate(8deg);
-    opacity: 0.92;
+    opacity: 0.95;
   }
   .topbar { padding: 11px 18px; }
   .topbar__brand { font-size: 13px; letter-spacing: 0.08em; white-space: nowrap; }
@@ -732,21 +732,6 @@ button:focus-visible {
 }
 .lightbox__close:hover { background: rgba(255, 255, 255, 0.28); }
 
-/* ---------- Колибри в герое (только мобильная) ---------- */
-.hero__bird { display: none; }
-@media (max-width: 640px) {
-  .hero__bird {
-    display: block;
-    position: absolute;
-    left: 6%; top: 46%;
-    width: 76px;
-    filter: grayscale(1) brightness(1.15) drop-shadow(0 0 10px rgba(255,255,255,0.45));
-    opacity: 0.96;
-    transform: rotate(-6deg);
-    pointer-events: none;
-    animation: float 7s ease-in-out infinite;
-  }
-}
 
 /* ============================================================
    Правки v1.1

@@ -1,0 +1,9 @@
+# Figma raw data / render cache (не нужно в репозитории)
+.figma-cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# gstack local browser state (tokens, logs)
+.gstack/

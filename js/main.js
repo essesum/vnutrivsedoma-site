@@ -11,15 +11,28 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
 (function () {
   "use strict";
 
-  // Кнопка «Зарегистрироваться» в герое:
-  // если задан GetCourse-URL — ведёт туда, иначе плавно скроллит к форме.
+  // Страница всегда открывается с первого экрана:
+  // не оставляем якорь #registration в адресе и не восстанавливаем прокрутку.
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (location.hash === "#registration") {
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+  window.addEventListener("load", function () {
+    if (!location.hash) window.scrollTo(0, 0);
+  });
+
+  // Кнопки «Зарегистрироваться» (герой и шапка):
+  // если задан GetCourse-URL — ведёт туда, иначе плавно скроллит к форме
+  // БЕЗ добавления #registration в адрес (чтобы сайт не открывался на регистрации).
   document.querySelectorAll('a[href="#registration"]').forEach(function (link) {
     link.addEventListener("click", function (e) {
+      e.preventDefault();
       if (REGISTRATION_URL) {
-        e.preventDefault();
         window.open(REGISTRATION_URL, "_blank", "noopener");
+        return;
       }
-      // иначе — обычный якорь к блоку регистрации
+      var sec = document.getElementById("registration");
+      if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
@@ -123,4 +136,58 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
   }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
 
   targets.forEach(function (el) { rObs.observe(el); });
+})();
+
+/* ============================================================
+   Лайтбокс отзывов — тап по картинке открывает её крупно
+   ============================================================ */
+(function () {
+  "use strict";
+  var imgs = document.querySelectorAll(".reviews__grid img");
+  if (!imgs.length) return;
+
+  var overlay = document.createElement("div");
+  overlay.className = "lightbox";
+  overlay.setAttribute("aria-hidden", "true");
+  overlay.innerHTML =
+    '<button class="lightbox__close" type="button" aria-label="Закрыть">×</button>' +
+    '<img class="lightbox__img" alt="" />';
+  document.body.appendChild(overlay);
+
+  var lbImg = overlay.querySelector(".lightbox__img");
+
+  function open(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || "";
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function close() {
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  imgs.forEach(function (img) {
+    img.setAttribute("role", "button");
+    img.setAttribute("tabindex", "0");
+    img.setAttribute("aria-label", "Открыть отзыв крупным планом");
+    img.addEventListener("click", function () {
+      open(img.currentSrc || img.src, img.alt);
+    });
+    img.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open(img.currentSrc || img.src, img.alt);
+      }
+    });
+  });
+
+  // клик по самой картинке не закрывает; закрывают фон и крестик
+  lbImg.addEventListener("click", function (e) { e.stopPropagation(); });
+  overlay.addEventListener("click", close);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
 })();

@@ -4,6 +4,8 @@
 
 🌿 **Живой сайт:** https://essesum.github.io/vnutrivsedoma-site/
 
+📘 **Передача / поддомен / тест заявок / для Codex:** см. [`docs/HANDOFF.md`](docs/HANDOFF.md)
+
 ![Превью сайта](docs/preview-hero.png)
 
 ---

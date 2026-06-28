@@ -141,6 +141,19 @@ button:focus-visible {
 .section--green    { background: var(--green); }
 /* учёт липкой шапки при переходе к блоку регистрации */
 #registration { scroll-margin-top: 76px; }
+
+/* еле заметная «матрица» фоном в «Кому подойдёт» */
+.section--matrix { overflow: hidden; }
+.section--matrix::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("../assets/img/matrix.png") repeat;
+  background-size: 320px auto;
+  opacity: 0.07;
+  pointer-events: none;
+}
 /* На зелёном фоне светло-серый текст не проходит по контрасту — затемняем */
 .section--green .lead,
 .section--green .bullets li { color: var(--ink); }
@@ -688,23 +701,25 @@ button:focus-visible {
 }
 @media (max-width: 640px) {
   .deco, .yin-floating { display: none; }
-  /* колибри в «Как проходит встреча» — сверху, рядом с заголовком */
+  /* колибри в «Как проходит встреча» — справа от заголовка, без наезда на текст */
   .deco--bird {
     display: block;
-    top: 58px; right: 16px; bottom: auto; left: auto;
-    width: 74px;
+    top: 46px; right: 6px; bottom: auto; left: auto;
+    width: 64px;
     transform: rotate(8deg);
     opacity: 0.95;
   }
-  .topbar { padding: 8px 16px; }
-  .topbar__brand { font-size: 14px; letter-spacing: 0.08em; white-space: nowrap; }
+  .h2--bird { padding-right: 78px; }
+  .topbar { padding: 9px 16px; }
+  .topbar__brand { font-size: 13.5px; letter-spacing: 0.08em; white-space: nowrap; }
   .topbar .btn {
-    min-height: 40px;
-    padding: 0 18px;
+    min-height: 38px;
+    padding: 0 16px;
     display: inline-flex;
     align-items: center;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 999px;
     white-space: nowrap;
   }
 }
@@ -764,13 +779,13 @@ button:focus-visible {
 .sense { padding-bottom: clamp(24px, 3vw, 48px); }
 .sense + .section { padding-top: clamp(24px, 3vw, 48px); }
 
-/* Моб.: инь-ян справа сверху секции (по аналогии с колибри), а не под заголовком */
+/* Моб.: инь-ян справа от заголовка (по аналогии с колибри), без наезда на текст */
 @media (max-width: 640px) {
-  .head-spin { display: block; }
+  .head-spin { display: block; position: relative; padding-right: 88px; min-height: 72px; }
   .head-spin .spin {
     position: absolute;
-    top: 2px; right: 6px;
-    width: 74px;
+    top: 0; right: 0;
+    width: 70px;
     margin: 0;
   }
 }

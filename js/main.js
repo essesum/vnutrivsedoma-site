@@ -97,7 +97,7 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
   /* ---- Появление блоков при прокрутке ---- */
   var targets = document.querySelectorAll(
     ".section .eyebrow, .section .h2, .section .lead, .section .card, " +
-    ".callout, .steps-list li, .reviews__grid img, .reg__card, .about__portrait"
+    ".callout, .steps-list li, .reg__card, .about__portrait"
   );
 
   if (reduce || !("IntersectionObserver" in window)) {
@@ -125,61 +125,4 @@ const REGISTRATION_URL = ""; // напр. "https://school.getcourse.ru/channelin
   }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
 
   targets.forEach(function (el) { rObs.observe(el); });
-})();
-
-/* ============================================================
-   Лайтбокс отзывов — тап по картинке открывает её крупно
-   ============================================================ */
-(function () {
-  "use strict";
-  var imgs = document.querySelectorAll(".reviews__grid img");
-  if (!imgs.length) return;
-
-  var overlay = document.createElement("div");
-  overlay.className = "lightbox";
-  overlay.setAttribute("aria-hidden", "true");
-  overlay.innerHTML =
-    '<button class="lightbox__close" type="button" aria-label="Закрыть">×</button>' +
-    '<img class="lightbox__img" alt="" />';
-  document.body.appendChild(overlay);
-
-  var lbImg = overlay.querySelector(".lightbox__img");
-  var closeBtn = overlay.querySelector(".lightbox__close");
-  var lastTrigger = null;
-
-  function open(trigger) {
-    lastTrigger = trigger;
-    lbImg.src = trigger.currentSrc || trigger.src;
-    lbImg.alt = trigger.alt || "";
-    overlay.classList.add("is-open");
-    overlay.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    closeBtn.focus();
-  }
-  function close() {
-    overlay.classList.remove("is-open");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
-  }
-
-  imgs.forEach(function (img) {
-    img.setAttribute("role", "button");
-    img.setAttribute("tabindex", "0");
-    img.setAttribute("aria-label", "Открыть отзыв крупным планом");
-    img.addEventListener("click", function () { open(img); });
-    img.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        open(img);
-      }
-    });
-  });
-
-  // клик по самой картинке не закрывает; закрывают фон и крестик
-  lbImg.addEventListener("click", function (e) { e.stopPropagation(); });
-  overlay.addEventListener("click", close);
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") close();
-  });
 })();

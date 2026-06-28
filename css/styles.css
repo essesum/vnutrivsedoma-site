@@ -503,7 +503,7 @@ button:focus-visible {
   /* HERO mobile: высота по экрану, заголовок сверху, текст снизу */
   .hero { min-height: 100svh; }
   /* фон всегда покрывает экран (никакой серой подложки снизу) */
-  .hero__bg { background-position: 42% 28%; background-size: cover; }
+  .hero__bg { background-position: 28% 14%; background-size: cover; }
   /* заголовок приватности компактнее, чтобы фраза влезала */
   .h2--privacy { font-size: 25px; }
   .hero__inner {
@@ -713,13 +713,10 @@ button:focus-visible {
   .topbar { padding: 9px 16px; }
   .topbar__brand { font-size: 13.5px; letter-spacing: 0.08em; white-space: nowrap; }
   .topbar .btn {
-    min-height: 38px;
-    padding: 0 16px;
-    display: inline-flex;
-    align-items: center;
-    font-size: 13px;
+    padding: 12px 18px;
+    font-size: 14px;
     font-weight: 700;
-    border-radius: 999px;
+    line-height: 1;
     white-space: nowrap;
   }
 }

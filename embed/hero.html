@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Первый экран — встраивание</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css?v=18" />
+  <style>
+    /* для вставки через iframe: фикс-высота вместо 100svh */
+    html, body { background: #20201d; }
+    .hero { min-height: 660px; }
+    @media (max-width: 640px) { .hero { min-height: 600px; } }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero__collage" aria-hidden="true">
+      <div class="hero__bg"></div>
+      <div class="hero__tint"></div>
+      <div class="hero__stage">
+        <img class="hero__portrait2" src="../assets/img/hero-portrait2.jpg" alt="" width="1000" height="853" />
+        <img class="hero__eye" src="../assets/img/hero-eye.png" alt="" width="488" height="281" />
+      </div>
+    </div>
+
+    <div class="hero__inner container">
+      <div class="hero__title-wrap">
+        <p class="hero__eyebrow">Онлайн-встреча в малой группе</p>
+        <h1 class="hero__title">Ченнелинг-группа<br />с Марией Шишкиной</h1>
+      </div>
+
+      <div class="hero__text">
+        <p class="hero__lead">Камерная Zoom-встреча на 10 человек, где каждый задаёт один личный вопрос и получает ответ через высшее Я + пояснение в формате консультации</p>
+        <a class="btn btn--green" id="hero-cta" href="#">Зарегистрироваться</a>
+        <p class="hero__note">2 – 2,5 часа глубокой духовной и психологической работы</p>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Ссылка регистрации (GetCourse). Пусто — кнопка прокручивает страницу вниз к форме.
+    var REGISTRATION_URL = "";
+
+    var cta = document.getElementById("hero-cta");
+    if (cta) cta.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (REGISTRATION_URL) { window.open(REGISTRATION_URL, "_blank", "noopener"); }
+      else { parent.postMessage({ vsdScroll: 1 }, "*"); }
+    });
+
+    // авто-высота для iframe
+    function vsdPostHeight() {
+      parent.postMessage({ vsdHeight: document.documentElement.scrollHeight }, "*");
+    }
+    window.addEventListener("load", vsdPostHeight);
+    window.addEventListener("resize", vsdPostHeight);
+    if (window.ResizeObserver) new ResizeObserver(vsdPostHeight).observe(document.body);
+    setTimeout(vsdPostHeight, 600);
+  </script>
+</body>
+</html>

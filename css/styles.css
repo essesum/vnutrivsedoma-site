@@ -150,7 +150,7 @@ button:focus-visible {
    ============================================================ */
 .hero {
   position: relative;
-  min-height: clamp(560px, 76vh, 760px);
+  min-height: clamp(600px, 88vh, 900px);
   background: #20201d;
   overflow: hidden;
   display: flex;
@@ -164,14 +164,14 @@ button:focus-visible {
 
 .hero__bg {
   position: absolute; inset: 0;
-  background: url('../assets/img/hero-bg.jpg') 50% 12% / cover no-repeat;
+  background: url('../assets/img/hero-bg.jpg') 50% 16% / cover no-repeat;
   filter: grayscale(1) contrast(1.02);
 }
 .hero__tint {
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(20,20,18,0.78) 0%, rgba(20,20,18,0.42) 46%, rgba(20,20,18,0.30) 100%),
-    linear-gradient(0deg, rgba(20,20,18,0.55) 0%, rgba(20,20,18,0) 45%);
+    linear-gradient(90deg, rgba(20,20,18,0.80) 0%, rgba(20,20,18,0.42) 44%, rgba(20,20,18,0.28) 100%),
+    linear-gradient(180deg, rgba(20,20,18,0) 30%, rgba(20,20,18,0.45) 62%, rgba(20,20,18,0.85) 100%);
 }
 .hero__portrait2 {
   position: absolute;
@@ -490,7 +490,7 @@ button:focus-visible {
   /* HERO mobile: высота по экрану, заголовок сверху, текст снизу */
   .hero { min-height: 100svh; }
   /* фон всегда покрывает экран (никакой серой подложки снизу) */
-  .hero__bg { background-position: 42% 22%; background-size: cover; }
+  .hero__bg { background-position: 42% 28%; background-size: cover; }
   /* заголовок приватности компактнее, чтобы фраза влезала */
   .h2--privacy { font-size: 25px; }
   .hero__inner {

@@ -150,8 +150,9 @@ button:focus-visible {
   inset: 0;
   z-index: 0;
   background: url("../assets/img/matrix.png") repeat;
-  background-size: 320px auto;
-  opacity: 0.07;
+  background-size: 300px auto;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
   pointer-events: none;
 }
 /* На зелёном фоне светло-серый текст не проходит по контрасту — затемняем */
@@ -513,17 +514,18 @@ button:focus-visible {
     gap: 40px;
   }
   .hero__title-wrap { text-align: left; }
-  /* нижнее фото — ниже, заходит под текст */
+  /* второе фото — выше, над текстом */
   .hero__portrait2 {
-    width: 60%;
-    top: 44%;
+    width: 58%;
+    top: 33%;
     bottom: auto;
     right: -6%;
     opacity: 0.9;
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24%);
             mask-image: linear-gradient(90deg, transparent 0, #000 24%);
   }
-  .hero__eye { left: auto; right: 5%; top: 21%; width: 116px; }
+  /* глаз ближе к центру (но не ровно по центру) */
+  .hero__eye { left: auto; right: 28%; top: 24%; width: 118px; }
   .hero__tint {
     background: linear-gradient(180deg, rgba(20,20,18,0.5) 0%, rgba(20,20,18,0.32) 36%, rgba(20,20,18,0.7) 64%, rgba(20,20,18,0.9) 100%);
   }
